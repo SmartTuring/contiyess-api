@@ -1,21 +1,17 @@
 ---
-title: Slate
+title: Chico Chino API
 
 language_tabs: # must be one of https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers
-  - shell
-  - ruby
-  - python
-  - javascript
+  - shell: cURL
+  - php
 
-toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
-  - <a href='../en/'> EN </a> <a href='../es/'> ES </a>
+toc_footers: 
+  - Developer by <a href='https://sturing.com.ec'>SmartTuring S.A.S.</a>
 
 includes:
   - intro
   - auth
-  - kittens
+  - orders
   - errors
 
 search: true
@@ -24,5 +20,5 @@ code_clipboard: true
 
 meta:
   - name: description
-    content: Documentation for the Kittn API
+    content: Documentation for the Chico Chino API
 ---

@@ -40,9 +40,9 @@ activate :relative_assets
 set :relative_links, true
 
 # Internationalization support
-#activate :i18n, :mount_at_root => :es
-activate :i18n, :mount_at_root => false
-redirect "index.html", :to => "./es/"
+activate :i18n, :mount_at_root => :es
+#activate :i18n, :mount_at_root => false
+#redirect "index.html", :to => "./es/"
 
 # Build Configuration
 configure :build do
