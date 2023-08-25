@@ -77,7 +77,8 @@ curl "https://app.chicochino.com.ec/api/v1/invoice/orders" \
                     }
                 ]
             }
-        ]
+        ],
+        "delivery_address": null
     },
     {
         "id": 100008,
@@ -100,12 +101,12 @@ curl "https://app.chicochino.com.ec/api/v1/invoice/orders" \
         "invoiced": false,
         "customer": {
             "id": 2,
-            "f_name": "Luis",
-            "l_name": "Ortiz",
+            "f_name": "John",
+            "l_name": "Doe",
             "identification": "1712345678",
             "email": "luis@gmail.com",
             "image": null,
-            "phone": "+593999905876",
+            "phone": "+593987654321",
         },
         "details": [
             {
@@ -151,7 +152,19 @@ curl "https://app.chicochino.com.ec/api/v1/invoice/orders" \
                     }
                 ]
             }
-        ]
+        ],
+        "delivery_address": {
+            "id": 3,
+            "address_type": "Home",
+            "contact_person_number": "+593987654321",
+            "address": "N-6143 Distrito Metropolitano de Quito EC",
+            "latitude": "-0.1231193340030719",
+            "longitude": "-78.49368810653687",
+            "created_at": "2023-06-19T22:04:22.000000Z",
+            "updated_at": "2023-06-19T22:04:22.000000Z",
+            "user_id": 3,
+            "contact_person_name": "John Doe"
+        }
     }
 ]
 ```
@@ -190,6 +203,7 @@ extra_discount | Descuento extra que haya recibido
 invoiced | Booleano **true** o **false**, indica si el pedido ya fue facturado o no.
 customer | Objeto **Cliente** contiene la información y detalle del cliente [ver Cliente](#cliente), en caso de no registrar retorna el valor **null**. (En este caso facturar como *Consumidor Final*).
 details | Detalle del pedido en **array** donde contiene el o los productos ordenados <a href='#detalle'> ver Detalle</a>.
+delivery_address | En caso de registrar, mostrará el detalle de la dirección a donde fue enviado el pedido, caso contrario, retornará *null*. [Ver Dirección](#direccion-de-envio).
 
 ### Cliente
 Respuesta contenida en el json recibido en el Endpoint **invoice/orders** nombrado como **customer**.
@@ -238,6 +252,19 @@ add_ons[].id | Identificador del producto adicional.
 add_ons[].name | Nombre del producto adicional.
 add_ons[].price | Precio del producto adicional.
 add_ons[].qty | Cantidad solicitada del producto adicional.
+
+### Dirección de envío
+Respuesta contenida en el json recibido en el Endpoint **invoice/orders** nombrado como **delivery_address**.
+
+Parámetro | Descripción
+--------- | -----------
+id | Identificador la dirección en el sistema.
+address_type | Tipo de dirección almacenado.
+contact_person_number | Contacto de la persona registrada en esta dirección.
+address | Dirección registrada para el envío.
+latitude | Latitud de la dirección.
+longitude | Longitud de la dirección.
+contact_person_name | Contacto de la persona en esa dirección.
 
 ## Marcar pedido como Facturado
 
