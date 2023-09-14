@@ -14,157 +14,169 @@ curl "https://app.chicochino.com.ec/api/v1/invoice/orders" \
 ```json
 [
     {
-        "id": 100007,
-        "user_id": null,
-        "order_amount": 42.44,
+        "id": 100016,
+        "user_id": 2,
+        "order_amount": 34.2,
+        "subtotal_vat": 30.54,
+        "subtotal_0": 0,
         "coupon_discount_amount": 0,
         "coupon_discount_title": null,
         "payment_status": "paid",
         "order_status": "delivered",
-        "total_tax_amount": 3.19,
+        "total_tax_amount": 3.66,
         "payment_method": "cash",
         "transaction_reference": null,
-        "checked": 1,        
+        "delivery_address_id": null,
+        "created_at": "2023-09-10T04:24:01.000000Z",
+        "updated_at": "2023-09-10T04:24:01.000000Z",
+        "checked": 1,
+        "delivery_man_id": null,
         "delivery_charge": 0,
         "order_note": null,
         "coupon_code": null,
         "order_type": "pos",
         "branch_id": 1,
-        "extra_discount": "0.00",
-        "invoiced": false,
-        "customer": null,
-        "details": [
-            {
-                "id": 9,
-                "product_id": 12,
-                "order_id": 100007,
-                "price": 13.3,
-                "product_details": {
-                    "id": 12,
-                    "name": "Combo Familiar",
-                    "description": "1 Pollo entero/ 8 presas, porción de papas fritas, porción de menestra, porción de arroz",
-                    "image": "2023-06-08-6480e66929009.png",
-                    "price": 20.3,
-                    "tax": 12,
-                    "discount": 0,
-                    "discount_type": "percent",
-                    "tax_type": "percent",
-                    "branch_id": 1,
-                    "translations": []
-                },
-                "variation": [
-                    {
-                        "Tamaño": "Medio Combo"
-                    }
-                ],
-                "discount_on_product": 0,
-                "discount_type": "discount_on_product",
-                "quantity": 2,
-                "tax_amount": 1.6,
-                "variant": "\"MedioCombo\"",
-                "add_ons": [
-                    {
-                        "id": 1,
-                        "name": "Presa de pollo",
-                        "price": 2.75,
-                        "qty": "1"
-                    },
-                    {
-                        "id": 3,
-                        "name": "Porción Ensalada",
-                        "price": 3.3,
-                        "qty": "3"
-                    }
-                ]
-            }
-        ],
-        "delivery_address": null
-    },
-    {
-        "id": 100008,
-        "user_id": 2,
-        "order_amount": 42.44,
-        "coupon_discount_amount": 0,
-        "coupon_discount_title": null,
-        "payment_status": "paid",
-        "order_status": "delivered",
-        "total_tax_amount": 3.19,
-        "payment_method": "card",
-        "transaction_reference": "AB-1234",
-        "checked": 1,
-        "delivery_charge": 1.50,
-        "order_note": null,
-        "coupon_code": null,
-        "order_type": "web",
-        "branch_id": 1,
+        "callback": null,
+        "delivery_date": "2023-09-09",
+        "delivery_time": "23:24:01",
         "extra_discount": "0.00",
         "invoiced": false,
         "customer": {
             "id": 2,
-            "f_name": "John",
-            "l_name": "Doe",
-            "identification": "1712345678",
+            "f_name": "Luis",
+            "l_name": "Ortiz",
+            "identification": "9999999999999",
             "email": "luis@gmail.com",
             "image": null,
-            "phone": "+593987654321",
+            "is_phone_verified": 0,
+            "email_verified_at": null,
+            "created_at": null,
+            "updated_at": "2023-06-30T01:12:47.000000Z",
+            "email_verification_token": "+593999905876",
+            "phone": "+593999905876",
+            "cm_firebase_token": null,
+            "point": 0,
+            "temporary_token": null,
+            "deleted_at": null
         },
         "details": [
             {
-                "id": 10,
-                "product_id": 12,
-                "order_id": 100008,
-                "price": 13.3,
+                "id": 25,
+                "product_id": 20,
+                "order_id": 100016,
+                "price": 9,
+                "price_without_vat": 8.04,
                 "product_details": {
-                    "id": 12,
-                    "name": "Combo Familiar",
-                    "description": "1 Pollo entero/ 8 presas, porción de papas fritas, porción de menestra, porción de arroz",
-                    "image": "2023-06-08-6480e66929009.png",
-                    "price": 20.3,
+                    "id": 20,
+                    "name": "Producto Test",
+                    "description": "Producto para testeo",
+                    "image": "2023-09-08-64fbe11502f5d.png",
+                    "price": 10,
                     "tax": 12,
+                    "available_time_starts": "00:00:00",
+                    "available_time_ends": "23:59:00",
+                    "status": 1,
+                    "created_at": "2023-09-09T03:05:57.000000Z",
+                    "updated_at": "2023-09-09T03:05:57.000000Z",
+                    "attributes": [
+                        "2"
+                    ],
+                    "category_ids": [
+                        {
+                            "id": "1",
+                            "position": 1
+                        }
+                    ],
+                    "choice_options": [
+                        {
+                            "name": "choice_2",
+                            "title": "Tamaño",
+                            "options": [
+                                "Pequeño",
+                                "Regular",
+                                "Grande"
+                            ]
+                        }
+                    ],
                     "discount": 0,
                     "discount_type": "percent",
                     "tax_type": "percent",
+                    "set_menu": 0,
                     "branch_id": 1,
+                    "colors": null,
                     "translations": []
                 },
                 "variation": [
                     {
-                        "Tamaño": "Medio Combo"
+                        "Tamaño": "Pequeño"
                     }
                 ],
                 "discount_on_product": 0,
                 "discount_type": "discount_on_product",
                 "quantity": 2,
-                "tax_amount": 1.6,
-                "variant": "\"MedioCombo\"",
+                "tax_amount": 0.96,
+                "created_at": "2023-09-10T04:24:01.000000Z",
+                "updated_at": "2023-09-10T04:24:01.000000Z",
                 "add_ons": [
                     {
-                        "id": 1,
-                        "name": "Presa de pollo",
-                        "price": 2.75,
-                        "qty": "1"
-                    },
-                    {
-                        "id": 3,
-                        "name": "Porción Ensalada",
-                        "price": 3.3,
-                        "qty": "3"
+                        "id": 2,
+                        "name": "Porción de papas",
+                        "price": 2.9,
+                        "qty": "1",
+                        "price_without_vat": 2.59,
+                        "vat": 0.31
                     }
-                ]
+                ],
+                "variant_type": "Pequeño"
+            },
+            {
+                "id": 26,
+                "product_id": 13,
+                "order_id": 100016,
+                "price": 13.3,
+                "price_without_vat": 11.88,
+                "product_details": {
+                    "id": 13,
+                    "name": "Combo Familiar 1",
+                    "description": "",
+                    "image": "2023-06-08-6480e6fbc84c4.png",
+                    "price": 13.3,
+                    "tax": 12,
+                    "available_time_starts": "10:30:00",
+                    "available_time_ends": "19:30:00",
+                    "status": 1,
+                    "created_at": "2023-06-08T12:22:19.000000Z",
+                    "updated_at": "2023-09-09T03:54:02.000000Z",
+                    "attributes": [],
+                    "category_ids": [
+                        {
+                            "id": "5",
+                            "position": 1
+                        }
+                    ],
+                    "choice_options": [],
+                    "discount": 0,
+                    "discount_type": "percent",
+                    "tax_type": "percent",
+                    "set_menu": 0,
+                    "branch_id": 1,
+                    "colors": null,
+                    "translations": []
+                },
+                "variation": [
+                    []
+                ],
+                "discount_on_product": 0,
+                "discount_type": "discount_on_product",
+                "quantity": 1,
+                "tax_amount": 1.43,
+                "created_at": "2023-09-10T04:24:01.000000Z",
+                "updated_at": "2023-09-10T04:24:01.000000Z",
+                "add_ons": [],
+                "variant_type": ""
             }
         ],
-        "delivery_address": {
-            "id": 3,
-            "address_type": "Home",
-            "contact_person_number": "+593987654321",
-            "address": "N-6143 Distrito Metropolitano de Quito EC",
-            "latitude": "-0.1231193340030719",
-            "longitude": "-78.49368810653687",
-            "created_at": "2023-06-19T22:04:22.000000Z",
-            "updated_at": "2023-06-19T22:04:22.000000Z",
-            "user_id": 3,
-            "contact_person_name": "John Doe"
-        }
+        "delivery_address": null
     }
 ]
 ```
@@ -186,6 +198,8 @@ Parámetro | Descripción
 id | Identificador o número de pedido.
 user_id | Identificador del cliente en el sistema.
 order_amount | Valor total del pedido (Productos + Impuestos + Valor de envío - Descuentos).
+subtotal_vat | Subtotal de los **productos con IVA diferente de 0**.
+subtotal_0 | Subtotal de los **productos con IVA igual a 0**.
 coupon_discount_amount | Valor de descuento por cupón.
 coupon_discount_title | Título de cupón de descuento.
 payment_status | Estado de pago: **paid** o **unpaid**. Por defecto este endpoint solo responderá con los pedidos en estado paid.
@@ -229,7 +243,8 @@ Parámetro | Descripción
 id | Identificador del detalle.
 product_id | Identificador del producto.
 order_id | Identificador del pedido asociado al detalle.
-price | Valor del producto **Tomar este valor al facturar**.
+price | Valor del producto incluido IVA **Tomar este valor al facturar**.
+price_without_vat | Valor del producto sin incluir IVA **Tomar este valor al facturar**.
 product_details.id | Identificador del producto.
 product_details.name | Nombre del producto
 product_details.description | Descripción del producto.
@@ -250,8 +265,10 @@ variant | Identificador en el sistema de la variación del producto.
 **add_ons** | **Array** que contiene los productos adicionales solicitados, relacionados a este detalle.
 add_ons[].id | Identificador del producto adicional.
 add_ons[].name | Nombre del producto adicional.
-add_ons[].price | Precio del producto adicional.
+add_ons[].price | Precio del producto adicional **incluido IVA**.
 add_ons[].qty | Cantidad solicitada del producto adicional.
+add_ons[].price_without_vat | Precio del producto adicional **sin incluir IVA**.
+add_ons[].vat | Valor de **IVA** del producto adicional.
 
 ### Dirección de envío
 Respuesta contenida en el json recibido en el Endpoint **invoice/orders** nombrado como **delivery_address**.
