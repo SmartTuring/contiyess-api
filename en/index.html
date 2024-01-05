@@ -1,0 +1,1737 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta
+            name="description"
+            content="Documentation for the Contiyess API"
+        >
+    <title>Contiyess API</title>
+    <link href="../images/favicon-af89bf76.ico" rel="icon" type="image/ico" />
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="../stylesheets/screen-9c19b03a.css" rel="stylesheet" media="screen" />
+    <link href="../stylesheets/print-966d6edc.css" rel="stylesheet" media="print" />
+      <script src="../javascripts/all-b12a2749.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="en en_index" data-languages="[&quot;shell&quot;,&quot;php&quot;,&quot;javascript&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="../images/logo-15adad97.png" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="php">php</a>
+              <a href="#" data-language-name="javascript">javascript</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#tablas" class="toc-h1 toc-link" data-title="Tablas">Tablas</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#ambientes" class="toc-h2 toc-link" data-title="Ambientes">Ambientes</a>
+                  </li>
+                  <li>
+                    <a href="#tipo-de-comprobantes" class="toc-h2 toc-link" data-title="Tipo de Comprobantes">Tipo de Comprobantes</a>
+                  </li>
+                  <li>
+                    <a href="#tipo-de-identificacion" class="toc-h2 toc-link" data-title="Tipo de Identificación">Tipo de Identificación</a>
+                  </li>
+                  <li>
+                    <a href="#tipo-de-descuento" class="toc-h2 toc-link" data-title="Tipo de Descuento">Tipo de Descuento</a>
+                  </li>
+                  <li>
+                    <a href="#iva" class="toc-h2 toc-link" data-title="IVA">IVA</a>
+                  </li>
+                  <li>
+                    <a href="#metodos-de-pago" class="toc-h2 toc-link" data-title="Métodos de Pago">Métodos de Pago</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#usuarios-y-contribuyentes" class="toc-h1 toc-link" data-title="Usuarios y Contribuyentes">Usuarios y Contribuyentes</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#crear-usuario-y-empresa" class="toc-h2 toc-link" data-title="Crear Usuario y Empresa">Crear Usuario y Empresa</a>
+                  </li>
+                  <li>
+                    <a href="#generar-token-de-usuario-desde-correo-electronico" class="toc-h2 toc-link" data-title="Generar token de usuario desde correo electrónico">Generar token de usuario desde correo electrónico</a>
+                  </li>
+                  <li>
+                    <a href="#subir-firma-electronica" class="toc-h2 toc-link" data-title="Subir Firma Electrónica">Subir Firma Electrónica</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#documentos" class="toc-h1 toc-link" data-title="Documentos">Documentos</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#listar-documentos-por-id-de-punto-de-emision" class="toc-h2 toc-link" data-title="Listar Documentos por ID de Punto de Emisión">Listar Documentos por ID de Punto de Emisión</a>
+                  </li>
+                  <li>
+                    <a href="#crear-documento" class="toc-h2 toc-link" data-title="Crear Documento">Crear Documento</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li>Developer by <a href='https://sturing.com.ec'>SmartTuring S.A.S.</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+
+<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+
+<p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
+<h1 id='tablas'>Tablas</h1><h2 id='ambientes'>Ambientes</h2>
+<table><thead>
+<tr>
+<th>Tipo de ambiente</th>
+<th style="text-align: center">Código</th>
+<th>Requisito</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Pruebas</td>
+<td style="text-align: center">1</td>
+<td>Obligatorio</td>
+</tr>
+<tr>
+<td>Producción</td>
+<td style="text-align: center">2</td>
+<td>Obligatorio</td>
+</tr>
+</tbody></table>
+<h2 id='tipo-de-comprobantes'>Tipo de Comprobantes</h2>
+<aside class="notice">
+Actualmente solo funciona la generación de Facturas.
+</aside>
+
+<table><thead>
+<tr>
+<th>Nombre Comprobante</th>
+<th style="text-align: center">Código</th>
+<th>Requisito</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Factura</td>
+<td style="text-align: center">1</td>
+<td>Obligatorio</td>
+</tr>
+<tr>
+<td>Liquidación de compra de bienes y prestación de servicios</td>
+<td style="text-align: center">3</td>
+<td>Obligatorio</td>
+</tr>
+<tr>
+<td>Nota de Crédito</td>
+<td style="text-align: center">4</td>
+<td>Obligatorio</td>
+</tr>
+<tr>
+<td>Nota de Débito</td>
+<td style="text-align: center">5</td>
+<td>Obligatorio</td>
+</tr>
+<tr>
+<td>Guía de Remisión</td>
+<td style="text-align: center">6</td>
+<td>Obligatorio</td>
+</tr>
+<tr>
+<td>Comprobante de Retención</td>
+<td style="text-align: center">7</td>
+<td>Obligatorio</td>
+</tr>
+</tbody></table>
+<h2 id='tipo-de-identificacion'>Tipo de Identificación</h2>
+<table><thead>
+<tr>
+<th>Identificación Receptor</th>
+<th style="text-align: center">Código</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>RUC</td>
+<td style="text-align: center">4</td>
+</tr>
+<tr>
+<td>Cédula de Ciudadanía</td>
+<td style="text-align: center">5</td>
+</tr>
+<tr>
+<td>Pasaporte</td>
+<td style="text-align: center">6</td>
+</tr>
+<tr>
+<td>Venta a consumidor final*</td>
+<td style="text-align: center">7</td>
+</tr>
+<tr>
+<td>Identificación del exterior*</td>
+<td style="text-align: center">8</td>
+</tr>
+</tbody></table>
+
+<p>*Venta a consumidor final: se consignará 13 dígitos de nueve en la identificación del cliente (9999999999999).</p>
+
+<p>*Identificación del exterior: corresponderá al número de Identificación otorgado por la Administración Tributaria (AT) del país que es residente fiscal.</p>
+
+<ul>
+<li><p>En el caso de emisión de liquidaciones de compra de bienes y prestación de servicios no se encuentra habilitado el uso del tipo de identificación venta a consumidor final.</p></li>
+<li><p>En el caso de emisión de notas de crédito, notas de débito y comprobantes de retención, se debe obligatoriamente identificar al receptor o sujeto retenido con el tipo de identificación correspondiente (RUC, cédula, pasaporte o identificación del exterior).</p></li>
+</ul>
+<h2 id='tipo-de-descuento'>Tipo de Descuento</h2>
+<table><thead>
+<tr>
+<th>Tipo de descuento</th>
+<th style="text-align: center">Código</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Porcentaje</td>
+<td style="text-align: center">percent</td>
+</tr>
+<tr>
+<td>Valor fijo</td>
+<td style="text-align: center">fixed</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+En caso de marcar un descuento con valor fijo, se omitirá el valor de porcentaje de descuento.
+</aside>
+<h2 id='iva'>IVA</h2>
+<table><thead>
+<tr>
+<th>Porcentaje de IVA</th>
+<th style="text-align: center">Código</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0%</td>
+<td style="text-align: center">0</td>
+</tr>
+<tr>
+<td>12%</td>
+<td style="text-align: center">2</td>
+</tr>
+<tr>
+<td>14%</td>
+<td style="text-align: center">3</td>
+</tr>
+<tr>
+<td>No Objeto de Impuesto</td>
+<td style="text-align: center">6</td>
+</tr>
+<tr>
+<td>Excento de IVA</td>
+<td style="text-align: center">7</td>
+</tr>
+<tr>
+<td>IVA Diferenciado*</td>
+<td style="text-align: center">8</td>
+</tr>
+</tbody></table>
+
+<p>*Mediante decreto ejecutivo el presidente de la República podrá aplicar una tarifa de IVA diferenciada entre el 8% al 12% para el sector turístico hasta 12 días al año. El código deberá utilizarse para registrar las tarifas de IVA iguales o mayores a 8% y menores a 12% según se establezca en el respectivo decreto, para el resto de los porcentajes y casos se deberán utilizar los códigos específicos previstos en la misma tabla.</p>
+<h2 id='metodos-de-pago'>Métodos de Pago</h2>
+<table><thead>
+<tr>
+<th>Nombre Métodos de Pago</th>
+<th style="text-align: center">Código</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Efectivo</td>
+<td style="text-align: center">1</td>
+</tr>
+<tr>
+<td>Tarjeta de débito</td>
+<td style="text-align: center">2</td>
+</tr>
+<tr>
+<td>Tarjeta de crédito</td>
+<td style="text-align: center">3</td>
+</tr>
+<tr>
+<td>Cheque</td>
+<td style="text-align: center">4</td>
+</tr>
+<tr>
+<td>Transferencia</td>
+<td style="text-align: center">5</td>
+</tr>
+<tr>
+<td>Cuentas por Cobrar</td>
+<td style="text-align: center">6</td>
+</tr>
+<tr>
+<td>Facturación Interna</td>
+<td style="text-align: center">7</td>
+</tr>
+<tr>
+<td>Prepago</td>
+<td style="text-align: center">8</td>
+</tr>
+<tr>
+<td>Nota de Crédito</td>
+<td style="text-align: center">9</td>
+</tr>
+</tbody></table>
+<h1 id='authentication'>Authentication</h1>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
+</blockquote>
+
+<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+
+<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+
+<p><code>Authorization: meowmeowmeow</code></p>
+
+<aside class="notice">
+You must replace <code>meowmeowmeow</code> with your personal API key.
+</aside>
+<h1 id='usuarios-y-contribuyentes'>Usuarios y Contribuyentes</h1><h2 id='crear-usuario-y-empresa'>Crear Usuario y Empresa</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># tokenMaquina es el token asignado para la comunicación con el sistema externo</span>
+curl <span class="s2">"https://contable.contiyess.com/api/v1/createUser"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer tokenMaquina"</span>
+</code></pre></div>
+<blockquote>
+<p>El JSON a enviar sería el siguiente:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Peter Parker"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"peter@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"business"</span><span class="p">:{</span><span class="w">
+        </span><span class="nl">"ruc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1712345678001"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"business_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa ABC"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"headquarter_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"La Kennedy"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"retention_agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"rimpe"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"account_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ambient"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Para el request previo, la respuesta es un JSON estructurado como sigue:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"peter@gmail.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Peter Parker"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-01-05T03:37:48.000000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-01-05T03:37:48.000000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">37</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"issuing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"ambients_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"id_iva"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ruc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1712345678001"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"business_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa ABC"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"headquarter_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"La Kennedy"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"retention_agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"rimpe"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SI"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"account_required"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-01-05T03:37:48.000000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-01-05T03:37:48.000000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">52</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"establishments"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"emission_point_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tokenUsuario"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Este endpoint crea un usuario y una empresa. En caso de que el usuario ya exista, solo toma su identificación e ignora la información consiguiente del mismo. En cambio, si el RUC ya existiere, devuelve un error indicando el mismo.</p>
+
+<aside class="success">
+De la respuesta, es importante tomar 'emission_point_id' y 'token', ya que los mismos servirán para la creación de nuevos documentos como facturas. Y el uso de todos los endpoints consiguientes, deberá ser con el token generado.
+</aside>
+
+<aside class="success">
+El token de usuario tiene una duración de 1 hora, en caso de que expire tendrá que generar un nuevo token desde el endpoint <a href='#generar-token-de-usuario-desde-correo-electronico'>Generar token de usuario desde email</a>.
+</aside>
+
+<aside class="notice">
+Debe reemplazar <code>tokenMaquina</code> con su token generado anteriormente. <a href='#generar-token'>Como generar token</a>
+</aside>
+
+<aside class="notice">
+* Los valores user.name y user.password solo se toman en caso de que el usuario sea nuevo, y se ignora en caso de que el usuario ya exista.
+</aside>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://contable.contiyess.com/api/v1/createUser</code></p>
+<h3 id='parametros-url'>Parámetros URL</h3>
+<table><thead>
+<tr>
+<th>Campo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user</td>
+<td>Objeto</td>
+<td>Información del usuario</td>
+</tr>
+<tr>
+<td>user.name</td>
+<td>String</td>
+<td>Nombre del usuario *</td>
+</tr>
+<tr>
+<td>user.email</td>
+<td>String</td>
+<td>Email del usuario</td>
+</tr>
+<tr>
+<td>user.password</td>
+<td>String</td>
+<td>Contraseña del usuario *</td>
+</tr>
+<tr>
+<td>business</td>
+<td>Objeto</td>
+<td>Información del negocio</td>
+</tr>
+<tr>
+<td>business.ruc</td>
+<td>String</td>
+<td>RUC del negocio</td>
+</tr>
+<tr>
+<td>business.business_name</td>
+<td>String</td>
+<td>Nombre del negocio</td>
+</tr>
+<tr>
+<td>business.headquarter_address</td>
+<td>String</td>
+<td>Dirección de la sede</td>
+</tr>
+<tr>
+<td>business.retention_agent</td>
+<td>String</td>
+<td>Agente de retención</td>
+</tr>
+<tr>
+<td>business.rimpe</td>
+<td>Boolean</td>
+<td>¿Pertenece al RIMPE?</td>
+</tr>
+<tr>
+<td>business.account_required</td>
+<td>Boolean</td>
+<td>¿Es obligado a llevar contabilidad?</td>
+</tr>
+<tr>
+<td>business.ambient</td>
+<td>Number</td>
+<td>Ambiente</td>
+</tr>
+</tbody></table>
+<h3 id='respuesta'>Respuesta</h3>
+<table><thead>
+<tr>
+<th>Campo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td>boolean</td>
+<td>Indica si la operación fue exitosa o no</td>
+</tr>
+<tr>
+<td>data</td>
+<td>object</td>
+<td>Objeto contenedor de los datos</td>
+</tr>
+<tr>
+<td>user</td>
+<td>object</td>
+<td>Objeto que contiene datos del usuario</td>
+</tr>
+<tr>
+<td>user.email</td>
+<td>string</td>
+<td>Correo electrónico del usuario</td>
+</tr>
+<tr>
+<td>user.name</td>
+<td>string</td>
+<td>Nombre completo del usuario</td>
+</tr>
+<tr>
+<td>user.updated_at</td>
+<td>string</td>
+<td>Fecha y hora de la última actualización</td>
+</tr>
+<tr>
+<td>user.created_at</td>
+<td>string</td>
+<td>Fecha y hora de la creación</td>
+</tr>
+<tr>
+<td>user.id</td>
+<td>number</td>
+<td>Identificador único del usuario</td>
+</tr>
+<tr>
+<td>issuing</td>
+<td>object</td>
+<td>Objeto que contiene datos de emisión</td>
+</tr>
+<tr>
+<td>issuing.ambients_id</td>
+<td>number</td>
+<td>Identificador del ambiente</td>
+</tr>
+<tr>
+<td>issuing.id_iva</td>
+<td>number</td>
+<td>Identificador del IVA</td>
+</tr>
+<tr>
+<td>issuing.ruc</td>
+<td>string</td>
+<td>RUC de la empresa emisora</td>
+</tr>
+<tr>
+<td>issuing.business_name</td>
+<td>string</td>
+<td>Nombre comercial de la empresa</td>
+</tr>
+<tr>
+<td>issuing.headquarter_address</td>
+<td>string</td>
+<td>Dirección de la sede principal</td>
+</tr>
+<tr>
+<td>issuing.retention_agent</td>
+<td>string</td>
+<td>Agente de retención</td>
+</tr>
+<tr>
+<td>issuing.rimpe</td>
+<td>string</td>
+<td>Indicador de Registro de Información de Micro y Pequeña Empresa (RIMPE)</td>
+</tr>
+<tr>
+<td>issuing.account_required</td>
+<td>string</td>
+<td>Indica si es obligado a llevar contabilidad</td>
+</tr>
+<tr>
+<td>issuing.updated_at</td>
+<td>string</td>
+<td>Fecha y hora de la última actualización</td>
+</tr>
+<tr>
+<td>issuing.created_at</td>
+<td>string</td>
+<td>Fecha y hora de la creación</td>
+</tr>
+<tr>
+<td>issuing.id</td>
+<td>number</td>
+<td>Identificador único de emisión</td>
+</tr>
+<tr>
+<td>issuing.establishments</td>
+<td>array</td>
+<td>Arreglo de establecimientos</td>
+</tr>
+<tr>
+<td>emission_point_id</td>
+<td>number</td>
+<td>Identificador del punto de emisión</td>
+</tr>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>Token de usuario</td>
+</tr>
+</tbody></table>
+<h2 id='generar-token-de-usuario-desde-correo-electronico'>Generar token de usuario desde correo electrónico</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># tokenMaquina es el token asignado para la comunicación con el sistema externo</span>
+curl <span class="s2">"https://contable.contiyess.com/api/v1/tokenByEmail"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer tokenMaquina"</span>
+</code></pre></div>
+<blockquote>
+<p>El JSON a enviar sería el siguiente:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"peter@gmail.com"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Para el request previo, la respuesta es un JSON estructurado como sigue:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tokenUsuario"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<aside class="success">
+El token de usuario tiene una duración de 1 hora, en caso de que expire tendrá que generar un nuevo token desde este mismo endpoint.
+</aside>
+
+<aside class="notice">
+Debe reemplazar <code>tokenMaquina</code> con su token generado anteriormente. <a href='#generar-token'>Como generar token</a>
+</aside>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://contable.contiyess.com/api/v1/tokenByEmail</code></p>
+<h3 id='parametros-url-2'>Parámetros URL</h3>
+<table><thead>
+<tr>
+<th>Campo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>Email del usuario</td>
+</tr>
+</tbody></table>
+<h3 id='respuesta-2'>Respuesta</h3>
+<table><thead>
+<tr>
+<th>Campo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td>boolean</td>
+<td>Indica si la operación fue exitosa o no</td>
+</tr>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>Token de usuario</td>
+</tr>
+</tbody></table>
+<h2 id='subir-firma-electronica'>Subir Firma Electrónica</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># tokenMaquina es el token asignado para la comunicación con el sistema externo</span>
+curl <span class="s2">"https://contable.contiyess.com/api/v1/uploadSignature"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer tokenMaquina"</span> <span class="s2">"Content-Type: multipart/form-data"</span>
+</code></pre></div>
+<blockquote>
+<p>El JSON a enviar sería el siguiente:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Archivo de firma electrónica P12 en base 64"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"issuing_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contraseña de firma electrónica"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Para el request previo, la respuesta es un JSON estructurado como sigue:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ruc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1712345678001"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"business_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa ABC"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"tradename"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"headquarter_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"La Kennedy"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"special_taxpayer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"retention_agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"account_required"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"rimpe"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SI"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"signature_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NlFUWERBVW1hajVXPMMJYjJSZ0ZGZz09"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ambients_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-01-04T21:39:22.000000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-01-04T21:42:27.000000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"id_iva"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"info_issuing"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<aside class="notice">
+En la cabecera de la petición debe enviar Content-Type: multipart/form-data
+</aside>
+
+<aside class="notice">
+Debe reemplazar <code>tokenMaquina</code> con su token generado anteriormente. <a href='#generar-token'>Como generar token</a>
+</aside>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://contable.contiyess.com/api/v1/uploadSignature</code></p>
+<h3 id='parametros-url-3'>Parámetros URL</h3>
+<table><thead>
+<tr>
+<th>Campo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>file</td>
+<td>file</td>
+<td>Firma electrónica P12</td>
+</tr>
+<tr>
+<td>issuing_id</td>
+<td>number</td>
+<td>ID de Emisor</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>Contraseña de firma electrónica</td>
+</tr>
+</tbody></table>
+<h3 id='respuesta-3'>Respuesta</h3>
+<table><thead>
+<tr>
+<th>Campo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td>boolean</td>
+<td>Indica si la operación fue exitosa o no</td>
+</tr>
+<tr>
+<td>data</td>
+<td>object</td>
+<td>Objeto contenedor de los datos</td>
+</tr>
+<tr>
+<td>id</td>
+<td>number</td>
+<td>Identificador único</td>
+</tr>
+<tr>
+<td>ruc</td>
+<td>string</td>
+<td>RUC de la empresa</td>
+</tr>
+<tr>
+<td>business_name</td>
+<td>string</td>
+<td>Nombre comercial de la empresa</td>
+</tr>
+<tr>
+<td>tradename</td>
+<td>null</td>
+<td>Nombre comercial alternativo</td>
+</tr>
+<tr>
+<td>headquarter_address</td>
+<td>string</td>
+<td>Dirección de la sede principal</td>
+</tr>
+<tr>
+<td>special_taxpayer</td>
+<td>string</td>
+<td>Indicador de contribuyente especial</td>
+</tr>
+<tr>
+<td>retention_agent</td>
+<td>string</td>
+<td>Agente de retención</td>
+</tr>
+<tr>
+<td>account_required</td>
+<td>string</td>
+<td>Indica si es obligado a llevar Contabilidad</td>
+</tr>
+<tr>
+<td>rimpe</td>
+<td>string</td>
+<td>Indicador de Registro de Información de Micro y Pequeña Empresa (RIMPE)</td>
+</tr>
+<tr>
+<td>status</td>
+<td>null</td>
+<td>Estado de la empresa</td>
+</tr>
+<tr>
+<td>signature_key</td>
+<td>string</td>
+<td>Clave de firma encriptada</td>
+</tr>
+<tr>
+<td>ambients_id</td>
+<td>number</td>
+<td>Identificador del ambiente</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>string</td>
+<td>Fecha y hora de la creación</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>string</td>
+<td>Fecha y hora de la última actualización</td>
+</tr>
+<tr>
+<td>id_iva</td>
+<td>number</td>
+<td>Identificador del IVA</td>
+</tr>
+<tr>
+<td>info_issuing</td>
+<td>null</td>
+<td>Información adicional de emisión</td>
+</tr>
+</tbody></table>
+<h1 id='documentos'>Documentos</h1><h2 id='listar-documentos-por-id-de-punto-de-emision'>Listar Documentos por ID de Punto de Emisión</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># tokenMaquina es el token asignado para la comunicación con el sistema externo</span>
+curl <span class="s2">"https://contable.contiyess.com/api/v1/documents/all/{id_punto_emision}"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer tokenUsuario"</span>
+</code></pre></div>
+<blockquote>
+<p>Para el request previo, la respuesta es un JSON estructurado como sigue:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>En caso de no tener permisos para acceder a los documentos, la respuesta es un JSON estructurado como sigue:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No tiene permiso para ver los documentos de este punto de emisión"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<aside class="success">
+El token de usuario tiene una duración de 1 hora, en caso de que expire tendrá que generar un nuevo token desde el endpoint <a href='#generar-token-de-usuario-desde-correo-electronico'>Generar token de usuario desde email</a>.
+</aside>
+
+<aside class="notice">
+Debe reemplazar <code>tokenUsuario</code> con su token generado anteriormente. <a href='#generar-token-de-usuario-desde-correo-electronico'>Como generar token</a>
+</aside>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://contable.contiyess.com/api/v1/documents/all/{id_punto_emision}</code></p>
+<h3 id='respuesta'>Respuesta</h3>
+<table><thead>
+<tr>
+<th>Campo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td>boolean</td>
+<td>Indica si la operación fue exitosa o no</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>Mensaje o información adicional</td>
+</tr>
+<tr>
+<td>data</td>
+<td>array</td>
+<td>Lista de documentos</td>
+</tr>
+</tbody></table>
+<h2 id='crear-documento'>Crear Documento</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># tokenMaquina es el token asignado para la comunicación con el sistema externo</span>
+curl <span class="s2">"https://contable.contiyess.com/api/v1/documents"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer tokenUsuario"</span>
+</code></pre></div>
+<blockquote>
+<p>El JSON a enviar sería el siguiente:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"emission_point_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"emit_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-01-04"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"document_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ambient"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"person"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name_people"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.doe@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"plate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phone_one"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phone_two"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Main Street"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"sub_total_iva"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.50</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sub_total_iva_cero"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.25</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sub_total_noi"</span><span class="p">:</span><span class="w"> </span><span class="mf">30.75</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sub_total_ei"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.50</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sub_total"</span><span class="p">:</span><span class="w"> </span><span class="mf">201.00</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"total_discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">13.00</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"total_value_ice"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.00</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"total_value_irbpnr"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.50</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"total_value_iva"</span><span class="p">:</span><span class="w"> </span><span class="mf">30.00</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"tip"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.00</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"total_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">290.50</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.00</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Item 1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"discount_percentage"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"discount_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"percent"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.00</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"irbpnr"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.00</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">95.00</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"net_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">45.00</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"iva_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"iva_percentage"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="err">//</span><span class="w">   </span><span class="nl">"ice_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"code_products"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P123"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"is_service"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tax_base"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"zero_base"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"non_taxable_base"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">75.50</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Item 2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"discount_percentage"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"discount_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fixed"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.00</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="err">//</span><span class="w">   </span><span class="nl">"irbpnr"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">195.50</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"net_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">67.50</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"iva_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"iva_percentage"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="err">//</span><span class="w">   </span><span class="nl">"ice_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"code_products"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P456"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"is_service"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tax_base"</span><span class="p">:</span><span class="w"> </span><span class="mf">67.50</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"zero_base"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"non_taxable_base"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"method_payments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"method_payment"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">150.00</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"method_payment"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">140.50</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Para el request previo, la respuesta es un JSON estructurado como sigue:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Document created success!"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"authorization"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0401202401171234567800110012000000000014422123018"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"emit_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-01-04"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"number_receipt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"001-200 000000001"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"serie_receipt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000000001"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"receipt_types_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"issuings_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ambients_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"people_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"emission_point_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_venc"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_caduca"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"receipt_total_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"observation"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-01-05T20:11:26.000000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-01-05T20:11:26.000000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">46</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<aside class="success">
+El token de usuario tiene una duración de 1 hora, en caso de que expire tendrá que generar un nuevo token desde el endpoint <a href='#generar-token-de-usuario-desde-correo-electronico'>Generar token de usuario desde email</a>.
+</aside>
+
+<aside class="notice">
+Debe reemplazar <code>tokenUsuario</code> con su token generado anteriormente. <a href='#generar-token-de-usuario-desde-correo-electronico'>Como generar token</a>
+</aside>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://contable.contiyess.com/api/v1/documents</code></p>
+<h3 id='parametros-url-factura'>Parámetros URL Factura</h3>
+<table><thead>
+<tr>
+<th>Campo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>emission_point_id</td>
+<td>number</td>
+<td>Identificador del punto de emisión</td>
+</tr>
+<tr>
+<td>emit_date</td>
+<td>string</td>
+<td>Fecha de emisión del documento en formato &quot;YYYY-MM-DD&quot;</td>
+</tr>
+<tr>
+<td>document_type</td>
+<td>number</td>
+<td>Tipo de documento <a href="#tipo-de-comprobantes">Tipo Comprobantes</a></td>
+</tr>
+<tr>
+<td>ambient</td>
+<td>number</td>
+<td>Ambiente de emisión <a href="#ambientes">Ambientes</a></td>
+</tr>
+<tr>
+<td>person</td>
+<td>object</td>
+<td>Objeto que contiene información sobre la persona</td>
+</tr>
+<tr>
+<td>identification</td>
+<td>string</td>
+<td>Número de identificación de la persona</td>
+</tr>
+<tr>
+<td>name_people</td>
+<td>string</td>
+<td>Nombre de la persona</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>Correo electrónico de la persona</td>
+</tr>
+<tr>
+<td>plate</td>
+<td>string</td>
+<td>Placa de vehículo de la persona (Opcional)</td>
+</tr>
+<tr>
+<td>phone_one</td>
+<td>string</td>
+<td>Número de teléfono principal de la persona</td>
+</tr>
+<tr>
+<td>phone_two</td>
+<td>string</td>
+<td>Número de teléfono secundario de la persona (Opcional)</td>
+</tr>
+<tr>
+<td>address</td>
+<td>string</td>
+<td>Dirección de la persona</td>
+</tr>
+<tr>
+<td>id_type</td>
+<td>string</td>
+<td>Tipo de identificación de la persona <a href="#tipo-de-identificacion">Tipo de Identificación</a></td>
+</tr>
+<tr>
+<td>sub_total_iva</td>
+<td>number</td>
+<td>Subtotal gravado con IVA</td>
+</tr>
+<tr>
+<td>sub_total_iva_cero</td>
+<td>number</td>
+<td>Subtotal gravado con IVA al 0%</td>
+</tr>
+<tr>
+<td>sub_total_noi</td>
+<td>number</td>
+<td>Subtotal no objeto de impuestos</td>
+</tr>
+<tr>
+<td>sub_total_ei</td>
+<td>number</td>
+<td>Subtotal exento de impuestos</td>
+</tr>
+<tr>
+<td>sub_total</td>
+<td>number</td>
+<td>Subtotal general</td>
+</tr>
+<tr>
+<td>total_discount</td>
+<td>number</td>
+<td>Total de descuentos</td>
+</tr>
+<tr>
+<td>total_value_ice</td>
+<td>number</td>
+<td>Total del impuesto ICE</td>
+</tr>
+<tr>
+<td>total_value_irbpnr</td>
+<td>number</td>
+<td>Total del impuesto IRBPNR</td>
+</tr>
+<tr>
+<td>total_value_iva</td>
+<td>number</td>
+<td>Total del impuesto IVA</td>
+</tr>
+<tr>
+<td>tip</td>
+<td>number</td>
+<td>Monto de la propina</td>
+</tr>
+<tr>
+<td>total_value</td>
+<td>number</td>
+<td>Total del documento</td>
+</tr>
+<tr>
+<td>items</td>
+<td>array</td>
+<td>Arreglo de ítems que contiene detalles de productos o servicios</td>
+</tr>
+<tr>
+<td>method_payments</td>
+<td>array</td>
+<td>Arreglo de métodos de pago con montos correspondientes</td>
+</tr>
+</tbody></table>
+
+<p><strong>Estructura del objeto &quot;items&quot;:</strong></p>
+
+<table><thead>
+<tr>
+<th>Campo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>value</td>
+<td>number</td>
+<td>Valor unitario del ítem</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>Descripción del ítem</td>
+</tr>
+<tr>
+<td>discount_percentage</td>
+<td>number</td>
+<td>Porcentaje de descuento aplicado al ítem (Se ignora en caso de que &quot;discount_type&quot; sea &quot;fixed&quot;)</td>
+</tr>
+<tr>
+<td>discount_type</td>
+<td>string</td>
+<td>Tipo de descuento (&quot;percent&quot; para porcentaje, &quot;fixed&quot; para monto fijo)</td>
+</tr>
+<tr>
+<td>discount</td>
+<td>number</td>
+<td>Monto de descuento aplicado al ítem</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>number</td>
+<td>Cantidad del ítem</td>
+</tr>
+<tr>
+<td>irbpnr</td>
+<td>number</td>
+<td>Monto del impuesto IRBPNR aplicado al ítem (puede ser nulo)</td>
+</tr>
+<tr>
+<td>total</td>
+<td>number</td>
+<td>Total del ítem (valor * cantidad - descuento + IRBPNR)</td>
+</tr>
+<tr>
+<td>net_price</td>
+<td>number</td>
+<td>Precio neto del ítem (valor - descuento + IRBPNR)</td>
+</tr>
+<tr>
+<td>product_id</td>
+<td>number</td>
+<td>Identificador del producto o servicio (Opcional)</td>
+</tr>
+<tr>
+<td>iva_id</td>
+<td>number</td>
+<td>Identificador del tipo de IVA aplicado <a href="#iva">IVAs</a></td>
+</tr>
+<tr>
+<td>iva_percentage</td>
+<td>number</td>
+<td>Porcentaje de IVA aplicado al ítem</td>
+</tr>
+<tr>
+<td>ice_id</td>
+<td>number</td>
+<td>Identificador del impuesto ICE aplicado (Opcional)</td>
+</tr>
+<tr>
+<td>code_products</td>
+<td>string</td>
+<td>Código del producto (Puede ser un código personalizado)</td>
+</tr>
+<tr>
+<td>is_service</td>
+<td>boolean</td>
+<td>Indica si el ítem es un servicio (true) o un producto (false)</td>
+</tr>
+<tr>
+<td>tax_base</td>
+<td>number</td>
+<td>Base imponible para cálculo de impuestos</td>
+</tr>
+<tr>
+<td>zero_base</td>
+<td>number</td>
+<td>Base imponible al 0% para cálculo de impuestos</td>
+</tr>
+<tr>
+<td>non_taxable_base</td>
+<td>number</td>
+<td>Base imponible no sujeta a impuestos</td>
+</tr>
+</tbody></table>
+
+<p><strong>Estructura del objeto &quot;method_payments&quot;:</strong></p>
+
+<table><thead>
+<tr>
+<th>Campo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>method_payment</td>
+<td>number</td>
+<td>Método de pago <a href="#metodos-de-pago">Métodos de Pago</a></td>
+</tr>
+<tr>
+<td>amount</td>
+<td>number</td>
+<td>Monto correspondiente al método de pago</td>
+</tr>
+</tbody></table>
+<h3 id='respuesta-factura'>Respuesta Factura</h3>
+<table><thead>
+<tr>
+<th>Campo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td>boolean</td>
+<td>Indica si la operación fue exitosa o no</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>Mensaje informativo sobre la creación del documento</td>
+</tr>
+<tr>
+<td>data</td>
+<td>object</td>
+<td>Objeto contenedor de los datos de respuesta</td>
+</tr>
+<tr>
+<td>authorization</td>
+<td>string</td>
+<td>Número de autorización del documento</td>
+</tr>
+<tr>
+<td>emit_date</td>
+<td>string</td>
+<td>Fecha de emisión del documento en formato &quot;YYYY-MM-DD&quot;</td>
+</tr>
+<tr>
+<td>number_receipt</td>
+<td>string</td>
+<td>Número de comprobante</td>
+</tr>
+<tr>
+<td>serie_receipt</td>
+<td>string</td>
+<td>Serie del comprobante</td>
+</tr>
+<tr>
+<td>receipt_types_id</td>
+<td>number</td>
+<td>Identificador del tipo de comprobante</td>
+</tr>
+<tr>
+<td>issuings_id</td>
+<td>number</td>
+<td>Identificador del emisor</td>
+</tr>
+<tr>
+<td>ambients_id</td>
+<td>number</td>
+<td>Identificador del ambiente de emisión</td>
+</tr>
+<tr>
+<td>people_id</td>
+<td>number</td>
+<td>Identificador de la persona asociada al documento</td>
+</tr>
+<tr>
+<td>emission_point_id</td>
+<td>number</td>
+<td>Identificador del punto de emisión</td>
+</tr>
+<tr>
+<td>date_venc</td>
+<td>null</td>
+<td>Fecha de vencimiento del documento (nulo en este caso)</td>
+</tr>
+<tr>
+<td>date_caduca</td>
+<td>null</td>
+<td>Fecha de caducidad del documento (nulo en este caso)</td>
+</tr>
+<tr>
+<td>receipt_total_id</td>
+<td>number</td>
+<td>Identificador del total del recibo</td>
+</tr>
+<tr>
+<td>status_id</td>
+<td>number</td>
+<td>Identificador del estado del documento</td>
+</tr>
+<tr>
+<td>observation</td>
+<td>string</td>
+<td>Observaciones asociadas al documento</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>number</td>
+<td>Identificador del usuario que creó el documento</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>string</td>
+<td>Fecha y hora de la última actualización</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>string</td>
+<td>Fecha y hora de la creación</td>
+</tr>
+<tr>
+<td>id</td>
+<td>number</td>
+<td>Identificador único del documento</td>
+</tr>
+</tbody></table>
+<h1 id='errors'>Errors</h1>
+<aside class="notice">
+This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
+</aside>
+
+<p>The Kittn API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified kitten could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone -- The kitten requested has been removed from our servers.</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&#39;m a teapot.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">cURL</a>
+                <a href="#" data-language-name="php">php</a>
+                <a href="#" data-language-name="javascript">javascript</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
