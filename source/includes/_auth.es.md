@@ -1,6 +1,6 @@
 # Autenticación
 
-Chico Chino utiliza API keys para permitir el acceso a la API. Para obtener la misma, se requiere que con anterioridad Ud. tenga su ID y Clave Secreta de Cliente entregado por el equipo de Desarrollo.
+Contiyess utiliza API keys para permitir el acceso a la API. Para obtener la misma, se requiere que con anterioridad Ud. tenga su ID y Clave Secreta de Cliente entregado por el equipo de Desarrollo.
 
 ## Generar Token
 
@@ -10,11 +10,11 @@ curl -k  -L -X POST -H 'Content-Type: application/json'
     "grant_type": "client_credentials",
     "client_id": "123",
     "client_secret": "abcdefghijklmnopqrstuvwxyz"
-}' 'https://app.chicochino.com.ec/oauth/token'
+}' 'https://contable.contiyess.com/oauth/token'
 ```
 
 ```php
-$url = 'https://app.chicochino.com.ec/oauth/token';
+$url = 'https://contable.contiyess.com/oauth/token';
 
 $data = array(
     "grant_type" => "client_credentials",
@@ -37,6 +37,28 @@ curl_close($ch);
 
 echo $response;
 ```
+```javascript
+const url = 'https://contable.contiyess.com/oauth/token';
+
+const data = {
+  grant_type: 'client_credentials',
+  client_id: '123',
+  client_secret: 'abcdefghijklmnopqrstuvwxyz'
+};
+
+const options = {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(data)
+};
+
+fetch(url, options)
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+```
 
 > Para el request previo, la respuesta es un JSON estructurado como sigue:
 
@@ -44,7 +66,7 @@ echo $response;
 {
     "token_type": "Bearer",
     "expires_in": 31622400,
-    "access_token": "your_token"
+    "access_token": "su_token"
 }
 ```
 
@@ -52,7 +74,7 @@ Para generar su API key debe hacer una petición al servidor con la ID y clave, 
 
 ### HTTP Request
 
-`POST https://app.chicochino.com.ec/oauth/token`
+`POST https://contable.contiyess.com/oauth/token`
 
 ### Parámetros URL
 
@@ -99,9 +121,27 @@ curl_close($ch);
 echo $response;
 ```
 
+```javascript
+const apiEndpoint = "api_endpoint_here";
+const accessToken = "your_bearer_token";
+
+const options = {
+  method: 'GET',
+  headers: {
+    'Authorization': 'Bearer ' + accessToken
+  }
+};
+
+fetch(apiEndpoint, options)
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+
+```
+
 > Asegúrese de reemplazar `token` con su token generado anteriormente.
 
-Chico Chino espera que el `token` se incluya en todas las solicitudes de API al servidor en un encabezado similar al siguiente:
+Contiyess espera que el `token` se incluya en todas las solicitudes de API al servidor en un encabezado similar al siguiente:
 
 `Authorization: Bearer 'token'`
 

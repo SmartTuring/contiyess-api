@@ -1,6 +1,6 @@
 # Errores
 
-Chico Chino API utiliza los siguientes códigos de error:
+Contiyess API utiliza los siguientes códigos de error:
 
 
 Código de Error | Explicación
